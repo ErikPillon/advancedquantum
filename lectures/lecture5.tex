@@ -29,6 +29,7 @@ It turns out that the tensor product of operators respects antisymmetry and symm
 \end{equation}
 This definition is given by the following:
 \begin{equation}
+\label{eq:Fock_space}
 \Gamma_s(A) = \bigoplus_{N=0}^\infty \Gamma_{s,N}(A) =: \bigoplus_{N=0}^\infty A^{\otimes N}
 \end{equation}
 Where $\oplus$ here is the matrix direct sum. If you think of $A$ as performing some kind of operation on vectors, say a rotation or something. Then we can think of $\Gamma_{s,N}(A)$ as performing the same operation to each of the particles in the space independently. This is a reminder of the simple formula $A\otimes B(\ket{a}\otimes\ket{b}) = (A\ket{a})\otimes(B\ket{b})$ from undergrad quantum mechanics.
@@ -47,7 +48,11 @@ So that the Schrodinger equation can be written as the following.
 \begin{equation}
 \dv{t}\Gamma_s(U_t) = -i\dd \Gamma_s(H)\Gamma_s(U_t)
 \end{equation}
-
+where we defined, like in eq.\eqref{eq:Fock_space},
+\begin{equation}\label{key}
+\nonumber
+d\Gamma_{s}(H)=\bigoplus_{N=0}^{\infty}d\Gamma_{s,N}(H)
+\end{equation}
 This Hamiltonian follows from the Leibniz property of the derivative. That is: Let $U_t = e^{itH}$, then $\dv{t} U_t^{\otimes N} =  (\dv{t} U_t) \otimes U_t \otimes \dots \otimes U_t + \dots$. As an exercise, fill in the rest of the proof. The object $\dd \Gamma_s$ which you apply is called the "differential second quantization operation", and is sometimes written $\Lambda$.
 
 Here's an example. Let $H = \II$. Then $\dd \Gamma_s(\II) = \hat N$ (trivially). So the number operator is indeed an observable. You can't observe the absolute phase of the particles, but you can do an interference experiment and determine the relative phase between the particles, which will tell you the number of particles in your system. The idea is that the partles undergo a phase change as time goes on according to the number of particles in the whole system. You could consider the identity operator itself! $\II$ is a perfectly acceptible Hamiltonian, but it is not of the form $\dd \Gamma_s(H)$ for any $H$, so it's not physically observable since $U_t = e^{it}$ provides the same phase change to every particle.
